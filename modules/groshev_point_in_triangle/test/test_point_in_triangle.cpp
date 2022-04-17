@@ -133,8 +133,9 @@ TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_positive ) {
 
   Point currentPoint(0.0, 1.0);
 
+  bool p = IsPointInTriangle(t, currentPoint);
   // Act & Assert
-  ASSERT_TRUE(IsPointInTriangle(t, currentPoint));
+  ASSERT_TRUE(p);
 }
 
 TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_negative) {
