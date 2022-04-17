@@ -245,3 +245,30 @@ TEST(PointInTriangle, Point_in_triangle_with_minus_points) {
   ASSERT_TRUE(p);
 }
 
+TEST(PointInTriangle, Point_in_triangle_second_case) {
+  // Arrange
+  Point a(-6.0, 0.0);
+  Point b(-6.0, 4.0);
+  Point c(-2.0, 0.0);
+  Triangle t(a, b, c);
+
+  Point currentPoint(-5.0, 1.0);
+
+  bool p = Triangle::IsPointInTriangle(t, currentPoint);
+  // Act & Assert
+  ASSERT_TRUE(p);
+}
+
+TEST(PointInTriangle, Point_in_triangle_second_case_two) {
+  // Arrange
+  Point a(-6.0, -1.0);
+  Point b(-2.0, -1.0);
+  Point c(-6.0, -5.0);
+  Triangle t(a, b, c);
+
+  Point currentPoint(-5.0, -2.0);
+
+  bool p = Triangle::IsPointInTriangle(t, currentPoint);
+  // Act & Assert
+  ASSERT_TRUE(p);
+}

@@ -62,7 +62,8 @@ bool Triangle::IsPointInTriangle(Triangle t, Point currentPoint) {
     double b_mult = (x2 - x0) * (y3 - y2) - (x3 - x2) * (y2 - y0);
     double c_mult = (x3 - x0) * (y1 - y3) - (x1 - x3) * (y3 - y0);
 
-    if ((a_mult >= 0 && b_mult >= 0 && c_mult >= 0)) {
+    if ((a_mult >= 0 && b_mult >= 0 && c_mult >= 0) ||
+        (a_mult <= 0 && b_mult <= 0 && c_mult <= 0)) {
       return true;
     } else {
       return false;
