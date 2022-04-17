@@ -133,7 +133,7 @@ TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_positive ) {
 
   Point currentPoint(0.0, 1.0);
 
-  bool p = IsPointInTriangle(t, currentPoint);
+  bool p = Triangle::IsPointInTriangle(t, currentPoint);
   // Act & Assert
   ASSERT_TRUE(p);
 }
@@ -147,7 +147,8 @@ TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_negative) {
 
   Point currentPoint(0.0, 5.0);
 
+  bool p = Triangle::IsPointInTriangle(t, currentPoint);
   // Act & Assert
-  ASSERT_FALSE(IsPointInTriangle(t, currentPoint));
+  ASSERT_FALSE(p);
 }
 
