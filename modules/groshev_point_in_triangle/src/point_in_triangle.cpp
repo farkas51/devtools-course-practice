@@ -1,20 +1,21 @@
+// Copyright 2022 Groshev Nickolay
+
 #include "include/point_in_triangle.h"
+#include <math.h>
 #include <string>
 
-#include "math.h"
 
 double Triangle::SideLength(Point _a, Point _b) {
   return sqrt(pow((_b.x - _a.x), 2) + pow((_b.y - _a.y), 2));
 }
 
-Triangle::Triangle() : a(-3.0, 0.0), b(3.0, 0.0), c(0.0, 3.0){
-
+Triangle::Triangle() : a(-3.0, 0.0), b(3.0, 0.0), c(0.0, 3.0) {
   ab = SideLength(a, b);
   bc = SideLength(b, c);
   ac = SideLength(a, c);
 
   if (!IsTriangleExist()) {
-    throw std::string("Треугольник не существует");
+    throw std::string("Triangle does not exist");
   }
 }
 
@@ -24,7 +25,7 @@ Triangle::Triangle(Point _a, Point _b, Point _c) : a(_a), b(_b), c(_c) {
   ac = SideLength(a, c);
 
   if (!IsTriangleExist()) {
-    throw std::string("Треугольник не существует");
+    throw std::string("Triangle does not exist");
   }
 }
 
@@ -41,7 +42,6 @@ Point Triangle::get_point_b() const { return b; }
 Point Triangle::get_point_c() const { return c; }
 
 bool IsPointInTriangle(Triangle t, Point currentPoint) {
-
     Point a = t.get_point_a();
     Point b = t.get_point_b();
     Point c = t.get_point_c();
@@ -51,7 +51,7 @@ bool IsPointInTriangle(Triangle t, Point currentPoint) {
 
     double x1 = a.x;
     double y1 = a.y;
-    
+
     double x2 = b.x;
     double y2 = b.y;
 
@@ -67,5 +67,5 @@ bool IsPointInTriangle(Triangle t, Point currentPoint) {
       return true;
     } else {
       return false;
-   }
+  }
 }

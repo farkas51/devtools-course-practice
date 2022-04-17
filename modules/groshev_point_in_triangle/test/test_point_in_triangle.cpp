@@ -1,9 +1,9 @@
+// Copyright 2022 Groshev Nickolay
 #include <gtest/gtest.h>
 #include <tuple>
 #include <string>
 
 #include "include/point_in_triangle.h"
-#include <src/point_in_triangle.cpp>
 
 
 TEST(PointConstructor, Constructor_Without_Parameters) {
@@ -11,20 +11,20 @@ TEST(PointConstructor, Constructor_Without_Parameters) {
 }
 
 TEST(PointConstructor, Constructor_With_Parameters) {
-  ASSERT_NO_THROW(Point(5.0,2.0));
+  ASSERT_NO_THROW(Point(5.0, 2.0));
 }
 
 TEST(PointTest, Get_Coordinates_From_Default_Point) {
   // Arrange
   Point t;
-  
+
   // Act & Assert
   ASSERT_TRUE((t.x == 0) && (t.y == 0));
 }
 
 TEST(PointTest, Get_Coordinates_From_Point) {
   // Arrange
-  Point t(5.0,2.0);
+  Point t(5.0, 2.0);
 
   // Act & Assert
   ASSERT_TRUE((t.x == 5.0) && (t.y == 2.0));
@@ -43,7 +43,7 @@ TEST(TriangleConstructor, Constructor_With_Parameters) {
   Point c(0.0, 3.0);
 
   // Act & Assert
-  ASSERT_NO_THROW(Triangle(a,b,c));
+  ASSERT_NO_THROW(Triangle(a, b, c));
 }
 
 
@@ -82,7 +82,7 @@ TEST(TrianglesTest, Throws_when_incorrect_points) {
   Point c(5.0, 6.0);
 
   // Act & Assert
-  ASSERT_ANY_THROW(Triangle (a, b, c));
+  ASSERT_ANY_THROW(Triangle(a, b, c));
 }
 
 TEST(TrianglesTest, Not_Throws_when_correct_points) {
@@ -124,7 +124,7 @@ TEST(TrianglesTest, Correct_side_length) {
   ASSERT_TRUE(length_ab == 6 && length_ac == length_bc);
 }
 
-TEST(PointInTriangle,Can_correctly_determine_point_in_triangle ) {
+TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_positive ) {
   // Arrange
   Point a(-3.0, 0.0);
   Point b(3.0, 0.0);
@@ -133,9 +133,20 @@ TEST(PointInTriangle,Can_correctly_determine_point_in_triangle ) {
 
   Point currentPoint(0.0, 1.0);
 
-  bool p = IsPointInTriangle(t, currentPoint);
+  // Act & Assert
+  ASSERT_TRUE(IsPointInTriangle(t, currentPoint));
+}
+
+TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_negative) {
+  // Arrange
+  Point a(-3.0, 0.0);
+  Point b(3.0, 0.0);
+  Point c(0.0, 3.0);
+  Triangle t(a, b, c);
+
+  Point currentPoint(0.0, 5.0);
 
   // Act & Assert
-  ASSERT_TRUE(p);
+  ASSERT_FALSE(IsPointInTriangle(t, currentPoint));
 }
 
