@@ -5,7 +5,6 @@
 
 #include "include/point_in_triangle.h"
 
-
 TEST(PointConstructor, Constructor_Without_Parameters) {
   ASSERT_NO_THROW(Point());
 }
@@ -48,6 +47,16 @@ TEST(TriangleConstructor, Constructor_With_Parameters) {
 
   // Act & Assert
   ASSERT_NO_THROW(Triangle(a, b, c));
+}
+
+TEST(TriangleConstructor, Constructor_With_Uncorrect_Parameters) {
+  // Arrange
+  Point a(3.0, 0.0);
+  Point b(3.0, 0.0);
+  Point c(0.0, 3.0);
+
+  // Act & Assert
+  ASSERT_ANY_THROW(Triangle(a, b, c));
 }
 
 TEST(TriangleConstructor, Constructor_Without_Parameters_Check_Default_Params) {
@@ -120,6 +129,16 @@ TEST(TrianglesTest, Not_Throws_when_correct_points) {
   ASSERT_NO_THROW(Triangle(a, b, c));
 }
 
+TEST(TrianglesTest, Can_Correctly_Get_A_Point) {
+  // Arrange
+  Point a(-3.0, 0.0);
+  Point b(3.0, 0.0);
+  Point c(0.0, 3.0);
+
+  // Act & Assert
+  ASSERT_NO_THROW(Triangle(a, b, c));
+}
+
 TEST(TrianglesTest, Get_points) {
   // Arrange
   Point a(-3.0, 0.0);
@@ -132,6 +151,16 @@ TEST(TrianglesTest, Get_points) {
               t.get_point_c() == c);
 }
 
+TEST(TrianglesTest, Normal_Triangle_Is_Exist) {
+  // Arrange
+  Point a(-3.0, 0.0);
+  Point b(3.0, 0.0);
+  Point c(0.0, 3.0);
+  Triangle abc(a, b, c);
+
+  // Act & Assert
+  ASSERT_TRUE(abc.IsTriangleExist());
+}
 
 TEST(TrianglesTest, Correct_side_length) {
   // Arrange
@@ -176,3 +205,4 @@ TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_negative) {
   // Act & Assert
   ASSERT_FALSE(p);
 }
+
