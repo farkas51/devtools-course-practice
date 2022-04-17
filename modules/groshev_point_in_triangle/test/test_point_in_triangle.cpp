@@ -3,6 +3,7 @@
 #include <string>
 
 #include "include/point_in_triangle.h"
+#include <src/point_in_triangle.cpp>
 
 
 TEST(PointConstructor, Constructor_Without_Parameters) {
@@ -121,5 +122,20 @@ TEST(TrianglesTest, Correct_side_length) {
 
   // Act & Assert
   ASSERT_TRUE(length_ab == 6 && length_ac == length_bc);
+}
+
+TEST(PointInTriangle,Can_correctly_determine_point_in_triangle ) {
+  // Arrange
+  Point a(-3.0, 0.0);
+  Point b(3.0, 0.0);
+  Point c(0.0, 3.0);
+  Triangle t(a, b, c);
+
+  Point currentPoint(0.0, 1.0);
+
+  bool p = IsPointInTriangle(t, currentPoint);
+
+  // Act & Assert
+  ASSERT_TRUE(p);
 }
 
