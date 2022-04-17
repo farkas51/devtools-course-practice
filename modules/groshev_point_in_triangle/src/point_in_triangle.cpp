@@ -41,7 +41,7 @@ Point Triangle::get_point_b() const { return b; }
 
 Point Triangle::get_point_c() const { return c; }
 
-bool IsPointInTriangle(Triangle t, Point currentPoint) {
+bool Triangle::IsPointInTriangle(Triangle t, Point currentPoint) {
     Point a = t.get_point_a();
     Point b = t.get_point_b();
     Point c = t.get_point_c();
