@@ -1,7 +1,7 @@
 // Copyright 2022 Groshev Nickolay
 
-#ifndef DEVTOOLS_COURSE_PRACTICE_MODULES_GROSHEV_POINT_IN_TRIANGLE_INCLUDE_POINT_IN_TRIANGLE_H_
-#define DEVTOOLS_COURSE_PRACTICE_MODULES_GROSHEV_POINT_IN_TRIANGLE_INCLUDE_POINT_IN_TRIANGLE_H_
+#ifndef MODULES_GROSHEV_POINT_IN_TRIANGLE_INCLUDE_POINT_IN_TRIANGLE_H_
+#define MODULES_GROSHEV_POINT_IN_TRIANGLE_INCLUDE_POINT_IN_TRIANGLE_H_
 
 struct Point {
   double x, y;
@@ -30,11 +30,11 @@ class Triangle {
   double SideLength(Point _a, Point _b);
   bool IsTriangleExist();
 
- friend bool IsPointInTriangle(Triangle t, Point currentPoint);
+friend bool IsPointInTriangle(Triangle t, Point currentPoint);
 
   Point Triangle::get_point_a() const;
   Point Triangle::get_point_b() const;
   Point Triangle::get_point_c() const;
 };
 
-#endif  // DEVTOOLS_COURSE_PRACTICE_MODULES_GROSHEV_POINT_IN_TRIANGLE_INCLUDE_POINT_IN_TRIANGLE_H_
+#endif  // MODULES_GROSHEV_POINT_IN_TRIANGLE_INCLUDE_POINT_IN_TRIANGLE_H_
