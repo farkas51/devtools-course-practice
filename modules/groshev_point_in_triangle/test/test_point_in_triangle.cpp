@@ -96,7 +96,7 @@ TEST(PointTest, Equal_Points_Are_Equal) {
   Point b(1.0, 2.0);
 
   // Act & Assert
-  EXPECT_EQ(a,b);
+  EXPECT_EQ(a, b);
 }
 
 TEST(PointTest, Equality_Operator) {
