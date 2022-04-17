@@ -32,9 +32,9 @@ class Triangle {
 
 static bool IsPointInTriangle(Triangle t, Point currentPoint);
 
-  Point Triangle::get_point_a() const;
-  Point Triangle::get_point_b() const;
-  Point Triangle::get_point_c() const;
+  Point get_point_a() const;
+  Point get_point_b() const;
+  Point get_point_c() const;
 };
 
 #endif  // MODULES_GROSHEV_POINT_IN_TRIANGLE_INCLUDE_POINT_IN_TRIANGLE_H_
