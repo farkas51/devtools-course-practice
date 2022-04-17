@@ -17,16 +17,17 @@ struct Point {
       return false;
     }
   }
-
-  int
 };
 
 class Triangle {
  private:
   Point a, b, c;
-
+  double ab = 0, bc = 0, ac = 0; 
     
  public:
-
+  Triangle();
+  Triangle(Point _a, Point _b, Point _c);
+  double Triangle::SideLength(Point _a, Point _b);
+  bool Triangle::IsTriangleExist();
 
 };
