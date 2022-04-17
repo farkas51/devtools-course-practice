@@ -14,6 +14,10 @@ TEST(PointConstructor, Constructor_With_Parameters) {
   ASSERT_NO_THROW(Point(5.0, 2.0));
 }
 
+TEST(PointConstructor, Constructor_With_Parameters_Can_Take_Minuses) {
+  ASSERT_NO_THROW(Point(-5.0, 2.0));
+}
+
 TEST(PointTest, Get_Coordinates_From_Default_Point) {
   // Arrange
   Point t;
@@ -46,6 +50,18 @@ TEST(TriangleConstructor, Constructor_With_Parameters) {
   ASSERT_NO_THROW(Triangle(a, b, c));
 }
 
+TEST(TriangleConstructor, Constructor_Without_Parameters_Check_Default_Params) {
+  // Arrange
+  Triangle t;
+  Point a(-3.0, 0.0);
+  Point b(3.0, 0.0);
+  Point c(0.0, 3.0);
+
+  // Act & Assert
+  ASSERT_TRUE(t.get_point_a() == a && t.get_point_b() == b &&
+              t.get_point_c() == c);
+}
+
 
 TEST(PointTest, Non_Equals_Point) {
   // Arrange
@@ -72,6 +88,15 @@ TEST(PointTest, Equality_Operator) {
 
   // Act & Assert
   ASSERT_TRUE(a == b);
+}
+
+TEST(PointTest, Correct_Params) {
+  // Arrange
+  Point a(1.0, 2.0);
+  Point b = a;
+
+  // Act & Assert
+  ASSERT_TRUE(b.x == 1.0 && b.y == 2.0);
 }
 
 
@@ -151,4 +176,3 @@ TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_negative) {
   // Act & Assert
   ASSERT_FALSE(p);
 }
-
