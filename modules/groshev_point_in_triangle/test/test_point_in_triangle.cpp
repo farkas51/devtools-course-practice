@@ -72,7 +72,7 @@ TEST(TriangleConstructor, Constructor_Without_Parameters_Check_Default_Params) {
 }
 
 
-TEST(PointTest, Non_Equals_Point) {
+TEST(PointTest, Correct_Comparison_Of_Two_Not_Equal_Points) {
   // Arrange
   Point a(1.0, 2.0);
   Point b(3.0, 4.0);
@@ -81,7 +81,7 @@ TEST(PointTest, Non_Equals_Point) {
   ASSERT_FALSE(a == b);
 }
 
-TEST(PointTest, Equals_Point) {
+TEST(PointTest, Correct_Comparison_Of_Two_Equal_Points) {
   // Arrange
   Point a(1.0, 2.0);
   Point b(1.0, 2.0);
@@ -90,13 +90,22 @@ TEST(PointTest, Equals_Point) {
   ASSERT_TRUE(a == b);
 }
 
+TEST(PointTest, Equal_Points_Are_Equal) {
+  // Arrange
+  Point a(1.0, 2.0);
+  Point b(1.0, 2.0);
+
+  // Act & Assert
+  EXPECT_EQ(a,b);
+}
+
 TEST(PointTest, Equality_Operator) {
   // Arrange
   Point a(1.0, 2.0);
   Point b = a;
 
   // Act & Assert
-  ASSERT_TRUE(a == b);
+  EXPECT_EQ(a, b);
 }
 
 TEST(PointTest, Correct_Params) {
@@ -129,16 +138,6 @@ TEST(TrianglesTest, Not_Throws_when_correct_points) {
   ASSERT_NO_THROW(Triangle(a, b, c));
 }
 
-TEST(TrianglesTest, Can_Correctly_Get_A_Point) {
-  // Arrange
-  Point a(-3.0, 0.0);
-  Point b(3.0, 0.0);
-  Point c(0.0, 3.0);
-
-  // Act & Assert
-  ASSERT_NO_THROW(Triangle(a, b, c));
-}
-
 TEST(TrianglesTest, Get_points) {
   // Arrange
   Point a(-3.0, 0.0);
@@ -161,6 +160,7 @@ TEST(TrianglesTest, Normal_Triangle_Is_Exist) {
   // Act & Assert
   ASSERT_TRUE(abc.IsTriangleExist());
 }
+
 
 TEST(TrianglesTest, Correct_side_length) {
   // Arrange
