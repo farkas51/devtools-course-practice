@@ -30,7 +30,7 @@ class Triangle {
   double SideLength(Point _a, Point _b);
   bool IsTriangleExist();
 
- static bool IsPointInTriangle(Triangle t, Point currentPoint);
+static bool IsPointInTriangle(Triangle t, Point currentPoint);
 
   Point Triangle::get_point_a() const;
   Point Triangle::get_point_b() const;
