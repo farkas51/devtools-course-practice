@@ -6,7 +6,7 @@
 #include "include/point_in_triangle.h"
 
 TEST(PointConstructor, Constructor_Without_Parameters) {
-  ASSERT_NO_THROW(Point());
+  ASSERT_NO_THROW(Point t);
 }
 
 TEST(PointConstructor, Constructor_With_Parameters) {
@@ -72,6 +72,7 @@ TEST(TriangleConstructor, Constructor_With_Uncorrect_Parameters) {
   // Act & Assert
   ASSERT_ANY_THROW(Triangle(a, b, c));
 }
+
 
 TEST(TriangleConstructor, Constructor_Without_Parameters_Check_Default_Params) {
   // Arrange
@@ -232,12 +233,12 @@ TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_negative) {
 
 TEST(PointInTriangle, Point_in_triangle_with_minus_points) {
   // Arrange
-  Point a(-5.0, -4.0);
-  Point b(0.0, -4.0);
-  Point c(-2.5, 0.0);
+  Point a(1.0, -4.0);
+  Point b(4.0, -4.0);
+  Point c(2.0, -1.0);
   Triangle t(a, b, c);
 
-  Point currentPoint(-2.0, -3.0);
+  Point currentPoint(2.0, -1.0);
 
   bool p = Triangle::IsPointInTriangle(t, currentPoint);
   // Act & Assert
