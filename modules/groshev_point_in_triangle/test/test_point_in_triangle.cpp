@@ -206,3 +206,17 @@ TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_negative) {
   ASSERT_FALSE(p);
 }
 
+TEST(PointInTriangle, Can_correctly_determine_point_in_triangle_with_minus_points) {
+  // Arrange
+  Point a(-5.0, -4.0);
+  Point b(0.0, -4.0);
+  Point c(-2.5, 0.0);
+  Triangle t(a, b, c);
+
+  Point currentPoint(-2.0, -3.0);
+
+  bool p = Triangle::IsPointInTriangle(t, currentPoint);
+  // Act & Assert
+  ASSERT_TRUE(p);
+}
+
