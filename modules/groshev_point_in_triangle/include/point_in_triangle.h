@@ -17,6 +17,7 @@ struct Point {
       return false;
     }
   }
+
 };
 
 class Triangle {
@@ -30,4 +31,7 @@ class Triangle {
   double Triangle::SideLength(Point _a, Point _b);
   bool Triangle::IsTriangleExist();
 
+  Point Triangle::get_point_a() const;
+  Point Triangle::get_point_b() const;
+  Point Triangle::get_point_c() const;
 };
