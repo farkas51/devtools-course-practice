@@ -55,7 +55,8 @@ bool MatrixCalculator::validateNumberOfArguments(int argc, const char** argv) {
   return true;
 }
 
-std::string MatrixCalculator::RunOperations(int argc, TMatrix<int> m1, TMatrix<int> m2, int operation) {
+std::string MatrixCalculator::RunOperations(int argc, TMatrix<int> m1,
+                                           TMatrix<int> m2, int operation) {
   TMatrix<int> resMatrix(2, 2);
   bool resBool;
   int resInt;
@@ -86,23 +87,19 @@ std::string MatrixCalculator::RunOperations(int argc, TMatrix<int> m1, TMatrix<i
 
 
 std::string MatrixCalculator::operator()(int argc, const char** argv) {
-
   if (!validateNumberOfArguments(argc, argv)) {
     return message_;
   }
-   
-  int mtr_1_rows = (int)argv[0];
-  int mtr_1_columns = (int)argv[1];
-  int mtr_1_value = (int)argv[2];
+  int mtr_1_rows = std::stod(argv[0]);
+  int mtr_1_columns = std::stod(argv[1]);
+  int mtr_1_value = std::stod(argv[2]);
   TMatrix<int> m1(mtr_1_rows, mtr_1_columns, mtr_1_value);
 
-  int mtr_2_rows = (int)argv[3];
-  int mtr_2_columns = (int)argv[4];
-  int mtr_2_value = (int)argv[5];
+  int mtr_2_rows = std::stod(argv[3]);
+  int mtr_2_columns = std::stod(argv[4]);
+  int mtr_2_value = std::stod(argv[5]);
   TMatrix<int> m2(mtr_2_rows, mtr_2_columns, mtr_2_value);
   const char* operation = argv[6];
 
   RunOperations(argc, m1, m2, parseOperation(operation));
-
-
 }
