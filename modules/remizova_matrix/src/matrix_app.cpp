@@ -60,7 +60,6 @@ std::string MatrixCalculator::RunOperations(int argc, TMatrix<int> m1,
   TMatrix<int> resMatrix(2, 2);
   bool resBool;
   int resInt;
-  int scalar = 5;
   std::ostringstream stream;
   switch (operation) {
     case '5':
