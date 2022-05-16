@@ -91,16 +91,16 @@ std::string MatrixCalculator::operator()(int argc, const char** argv) {
     return message_;
   }
    
-  int mtr_1_rows = (int)argv[1];
-  int mtr_1_columns = (int)argv[2];
-  int mtr_1_value = (int)argv[3];
+  int mtr_1_rows = (int)argv[0];
+  int mtr_1_columns = (int)argv[1];
+  int mtr_1_value = (int)argv[2];
   TMatrix<int> m1(mtr_1_rows, mtr_1_columns, mtr_1_value);
 
-  int mtr_2_rows = (int)argv[4];
-  int mtr_2_columns = (int)argv[5];
-  int mtr_2_value = (int)argv[6];
+  int mtr_2_rows = (int)argv[3];
+  int mtr_2_columns = (int)argv[4];
+  int mtr_2_value = (int)argv[5];
   TMatrix<int> m2(mtr_2_rows, mtr_2_columns, mtr_2_value);
-  const char* operation = argv[7];
+  const char* operation = argv[6];
 
   RunOperations(argc, m1, m2, parseOperation(operation));
 

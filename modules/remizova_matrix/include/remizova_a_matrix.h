@@ -35,7 +35,8 @@ class TMatrix {
     TMatrix<T> transposition() const;
     TMatrix<T> alliance() const;
     TMatrix<T> reverse() const;
-    friend std::ostringstream& operator<<(std::ostringstream& os, TMatrix<T>& m);
+    friend std::ostringstream& operator<<(std::ostringstream& os
+        , TMatrix<T>& m);
 };
 
 template <class T>
