@@ -99,6 +99,6 @@ std::string MatrixCalculator::operator()(int argc, const char** argv) {
   int mtr_2_value = std::stod(argv[5]);
   TMatrix<int> m2(mtr_2_rows, mtr_2_columns, mtr_2_value);
   const char* operation = argv[6];
-
-  return RunOperations(argc, m1, m2, parseOperation(operation));
+  int oper = parseOperation(operation);
+  return RunOperations(argc, m1, m2, oper);
 }
