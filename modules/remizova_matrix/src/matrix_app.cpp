@@ -1,3 +1,4 @@
+// Copyright 2022 Remizova Antonina & Grohev Nikolay
 #include <vector>
 #include <string>
 #include <sstream>
@@ -13,7 +14,8 @@ void MatrixCalculator::helpMessage(const char* message) {
       "      to make some operations with matrix\n" +
       "      Please provide arguments in the following format:\n" +
       "      number_colunms1 number_rows1 fill_value1 \n" +
-      "      number_colunms2 number_rows2 fill_value2 \n";
+      "      number_colunms2 number_rows2 fill_value2 \n" +
+      "      Please, use integer values \n";
 }
 char parseOperation(const char* arg) {
   char op;
