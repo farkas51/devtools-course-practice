@@ -100,5 +100,5 @@ std::string MatrixCalculator::operator()(int argc, const char** argv) {
   TMatrix<int> m2(mtr_2_rows, mtr_2_columns, mtr_2_value);
   const char* operation = argv[6];
 
-  RunOperations(argc, m1, m2, parseOperation(operation));
+  return RunOperations(argc, m1, m2, parseOperation(operation));
 }
