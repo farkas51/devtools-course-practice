@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <sstream>
 
 template <class T>
 class TMatrix {
@@ -34,6 +35,7 @@ class TMatrix {
     TMatrix<T> transposition() const;
     TMatrix<T> alliance() const;
     TMatrix<T> reverse() const;
+    friend std::ostringstream& operator<<(std::ostringstream& os, TMatrix<T>& m);
 };
 
 template <class T>
@@ -254,6 +256,8 @@ TMatrix<T> TMatrix<T>::reverse() const {
             rev.mtr[i][j] = all.mtr[i][j] / determinant(*this);
     return rev;
 }
+
+
 
 #endif  // MODULES_REMIZOVA_MATRIX_INCLUDE_REMIZOVA_A_MATRIX_H_
 
