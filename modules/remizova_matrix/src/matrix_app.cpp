@@ -56,13 +56,11 @@ std::string MatrixCalculator::RunOperations(int argc, TMatrix<double> m1,
   TMatrix<int> resMatrix(2, 2);
   bool resBool;
   int resInt;
-  bool flag = false;
   std::string output;
   std::ostringstream stream;
 
   switch (operation) {
     case 53:
-      flag = true;
       resBool = m1 == m2;
       stream << "res = ";
       stream << resBool;
