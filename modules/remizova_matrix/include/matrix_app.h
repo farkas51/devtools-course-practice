@@ -10,12 +10,13 @@ class MatrixCalculator {
  public:
   MatrixCalculator();
   std::string operator()(int argc, const char** argv);
+  int MatrixCalculator::parseDouble(const char* arg);
 
  private:
   void helpMessage(const char* message);
   bool validateNumberOfArguments(int argc, const char** argv);
   std::string message_;
-  std::string RunOperations(int argc, TMatrix<int> m1, TMatrix<int> m2,
+  std::string RunOperations(int argc, TMatrix<double> m1, TMatrix<double> m2,
                             int operation);
 };
 #endif  // MODULES_REMIZOVA_MATRIX_INCLUDE_MATRIX_APP_H_
