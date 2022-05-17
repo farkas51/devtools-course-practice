@@ -86,7 +86,6 @@ std::string MatrixCalculator::RunOperations(int argc, TMatrix<double> m1,
 
 
 std::string MatrixCalculator::operator()(int argc, const char** argv) {
-  int tmp = argc;
   if (!validateNumberOfArguments(argc, argv)) {
     return message_;
   }
