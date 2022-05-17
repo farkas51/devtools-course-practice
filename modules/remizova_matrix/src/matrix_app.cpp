@@ -45,18 +45,16 @@ char parseOperation(const char* arg) {
 
 
 bool MatrixCalculator::validateNumberOfArguments(int argc, const char** argv) {
-  if (argc == 1) {
-    helpMessage("Wrong count of arguments");
-    return false;
-  } else if (argc != 10 && argc != 7 && argc != 6) {
+  if (argc != 7) {
     helpMessage("Should be 7 arguments!\n\n");
     return false;
-  }
-  return true;
+  } else {
+    return true;
+  };
 }
 
 std::string MatrixCalculator::RunOperations(int argc, TMatrix<int> m1,
-                                           TMatrix<int> m2, int operation) {
+                                            TMatrix<int> m2, int operation) {
   TMatrix<int> resMatrix(2, 2);
   bool resBool;
   int resInt;
@@ -86,17 +84,17 @@ std::string MatrixCalculator::RunOperations(int argc, TMatrix<int> m1,
 
 
 std::string MatrixCalculator::operator()(int argc, const char** argv) {
-  if (!validateNumberOfArguments(argc, argv)) {
+  if (validateNumberOfArguments(argc, argv)) {
     return message_;
   }
-  int mtr_1_rows = std::stod(argv[0]);
-  int mtr_1_columns = std::stod(argv[1]);
-  int mtr_1_value = std::stod(argv[2]);
+  int mtr_1_rows = std::stoi(argv[1]);
+  int mtr_1_columns = std::stoi(argv[2]);
+  int mtr_1_value = std::stoi(argv[3]);
   TMatrix<int> m1(mtr_1_rows, mtr_1_columns, mtr_1_value);
 
-  int mtr_2_rows = std::stod(argv[3]);
-  int mtr_2_columns = std::stod(argv[4]);
-  int mtr_2_value = std::stod(argv[5]);
+  int mtr_2_rows = std::stoi(argv[4]);
+  int mtr_2_columns = std::stoi(argv[5]);
+  int mtr_2_value = std::stoi(argv[6]);
   TMatrix<int> m2(mtr_2_rows, mtr_2_columns, mtr_2_value);
   const char* operation = argv[6];
   int oper = parseOperation(operation);

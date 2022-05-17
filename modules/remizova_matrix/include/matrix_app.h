@@ -15,7 +15,7 @@ class MatrixCalculator {
   void helpMessage(const char* message);
   bool validateNumberOfArguments(int argc, const char** argv);
   std::string message_;
-  std::string RunOperations(int argc, TMatrix<int> m1,
-                           TMatrix<int> m2, int operation);
+  std::string RunOperations(int argc, TMatrix<int> m1, TMatrix<int> m2,
+                            int operation);
 };
 #endif  // MODULES_REMIZOVA_MATRIX_INCLUDE_MATRIX_APP_H_
