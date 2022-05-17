@@ -47,22 +47,28 @@ TEST_F(MatrixCalculatorTest, Is_Checking_Number_Of_Arguments) {
   Assert("Should be 7 arguments!");
 }
 
-TEST_F(MatrixCalculatorTest, Can_Detect_Wrong_Operation_Format) {
-  std::vector<std::string> args = {"1", "2", "3", "1", "2",
-                                   "3", "++"};
-
-  Act(args);
-
-  Assert("");
-}
-
 TEST_F(MatrixCalculatorTest, Can_Compare_For_Equality) {
-  std::vector<std::string> args = {"1", "2", "3", "4", "1",
-                                   "2", "=="};
+  std::vector<std::string> args = {"2", "2", "3", "2", "2",
+                                   "3", "=="};
 
   Act(args);
 
-  Assert("");
+  Assert("res = 1");
 }
 
 
+TEST_F(MatrixCalculatorTest, Can_Compare_For_Inequality) {
+  std::vector<std::string> args = {"2", "2", "3", "2", "2", "3", "!="};
+
+  Act(args);
+
+  Assert("res = 0");
+}
+
+TEST_F(MatrixCalculatorTest, Can_Determinant) {
+  std::vector<std::string> args = {"2", "2", "3", "2", "2", "3", "det"};
+
+  Act(args);
+
+  Assert("res = 0");
+}
