@@ -43,7 +43,7 @@ bool MatrixCalculator::validateNumberOfArguments(int argc, const char** argv) {
   }
 }
 
-int MatrixCalculator::parseDouble(const char* arg) {
+int parseDouble(const char* arg) {
   char* end;
   int value = strtod(arg, &end);
 

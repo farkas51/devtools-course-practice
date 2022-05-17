@@ -10,7 +10,6 @@ class MatrixCalculator {
  public:
   MatrixCalculator();
   std::string operator()(int argc, const char** argv);
-  int MatrixCalculator::parseDouble(const char* arg);
 
  private:
   void helpMessage(const char* message);
